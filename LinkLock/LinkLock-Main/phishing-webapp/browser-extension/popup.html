@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>LinkLock</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">
+        <img src="phishing.png" alt="LinkLock" style="width: 40px; height: 40px;">
+      </div>
+      <h2 style="font-family: 'Cairo Play', sans-serif;">LinkLock</h2>
+    </div>
+
+    <div class="url-input-section">
+      <div class="toggle-container">
+        <span>Use Current URL</span>
+        <label class="switch" title="Toggle between current and custom URL">
+          <input type="checkbox" id="toggleCustomURL" />
+          <span class="slider">
+            <span class="toggle-icon toggle-off">✓</span>
+            <span class="toggle-icon toggle-on">✎</span>
+          </span>
+        </label>
+        <span>Custom URL</span>
+      </div>
+
+      <div class="url-display">
+        <strong>Current URL:</strong> <span id="currentUrl">Loading...</span>
+      </div>
+
+      <div class="custom-url-input" id="customUrlSection" style="display: none; flex-direction: column; gap: 10px; margin-top: 10px;">
+        <input 
+          type="text" 
+          id="customUrlInput" 
+          placeholder="Enter a URL to check (e.g., https://example.com)"
+        >
+      </div>
+    </div>
+
+    <button id="checkBtn">Analyze Website</button>
+
+    <div id="result" style="margin-top: 16px;"></div>
+
+    <div id="settingsSection" style="margin-top: 16px;">
+      <button id="settingsToggleBtn">⚙️ Settings</button>
+      
+      <div id="settingsOptions" style="display: none; margin-top: 12px;">
+        <div class="setting-option">
+          <label for="autoCheckToggle">Auto-check URLs:</label>
+          <label class="switch" title="Enable automatic URL checking">
+            <input type="checkbox" id="autoCheckToggle" checked>
+            <span class="slider">
+              <span class="toggle-icon toggle-off">✓</span>
+              <span class="toggle-icon toggle-on">✓</span>
+            </span>
+          </label>
+        </div>
+        <div class="setting-option">
+          <label for="notificationsToggle">Show notifications:</label>
+          <label class="switch" title="Enable browser notifications">
+            <input type="checkbox" id="notificationsToggle" checked>
+            <span class="slider">
+              <span class="toggle-icon toggle-off">✓</span>
+              <span class="toggle-icon toggle-on">✓</span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div id="feedbackSection" style="margin-top: 16px;">
+      <button id="reportToggleBtn">📢 Report Feedback</button>
+
+      <div id="feedbackFollowUp" style="display: none; margin-top: 12px;">
+        <button id="reportSafe">✅ Mark as Safe</button>
+        <button id="reportPhishing">🚨 Mark as Phishing</button>
+        <p id="reportStatus"></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
